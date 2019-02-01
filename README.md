@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React
 
-## Available Scripts
+React is a libarary created by the good peole at Facebook.
 
-In the project directory, you can run:
+Here is some vocab to review
 
-### `npm start`
+### Language
+JavaScript is a programming language.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Library
+Libraries are basically processes for doing something specific in your application, written in a specific language (React is written in JavaScript which is a language).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Framework
+A framework is like a bigger library, with many more specifications on how to complete things.
 
-### `npm test`
+Think of them all like this: A book is written in a language, a library holds books (like a bookshelf, not a full on library you are accustomed to) which are written in specific languages and a framework is like a house, which if big enough, could have a library in it.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Object
+A way to hold data in JS. Objects are usually concerend to one piece of data like a human or properties of something like a car
+```js
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const me = {
+  name: 'Bryan',
+  tattoos: {
+    has: true,
+    count: 5
+  },
+  age 29
+}
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Class
+A class is a special way we can create a function that will return an object. We used a special type of class in React to create our components. Remember, this class and class in CSS are **ABSOLUTELY DIFFERENT**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Component 
+React uses a component-based architecture. What this means is that we break out our JSX/JS into separate, smaller (more maintainable) files. Remember, React doesn't use HTML, it used JSX which is javascripts representation of HTML.
 
-### `npm run eject`
+###JSX
+Just incase you didn't read the one above, JSX is the representation of HTML in JavaScript. If we want to access variables/state/anything that is javascript related, we need to escape our JSX
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### {}
+How we escape our JSX
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+  class App extends Component {
+    constructor(){
+      super()
+      this.state = {
+        name: 'Bryan'
+      }
+    }
+    render(){
+      return (
+        <div>
+          {this.state.name}
+        </div>
+      )
+    }
+  }
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If we just type `this.state.name` outside of the curly braces, it would render text of **this.state.name**.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### state
+`this.state` is the "defaults" we set up for our app, or placeholders for future data. It is created inside of the constructor method. Rememer, React rerenders the page when our state is updated. React is smart though and only updates what needs to be updated if there is a change
 
-## Learn More
+### setState
+`this.setState({})` is how we update our state inside of the contructor. You will not add new key/value pairs to the state in the constructor, only update them.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Here is the structore of almost every class based component you will ever write
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*with state*
+```jsx
+  import React, {Component} from 'react'
 
-### Code Splitting
+  class ComponentName extends Component {
+    constructor(){
+      super()
+      this.state = {
+        //DATE TO BE STORED ON STATE
+      }
+    }
+    render(){
+      return(
+        // JSX
+      )
+    }
+  }
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+*withOUT state*
+```jsx
+  import React, {Component} from 'react'
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  class ComponentName extends Component {
+    render(){
+      return(
+        // JSX
+      )
+    }
+  }
+```
